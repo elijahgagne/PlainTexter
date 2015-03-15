@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>plain-text-file-icon-hi.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,8 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConfigureWindow.xaml.cs">
-      <DependentUpon>ConfigureWindow.xaml</DependentUpon>
+    <Compile Include="OptionsWindow.xaml.cs">
+      <DependentUpon>OptionsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="Resource.Designer.cs">
@@ -95,6 +98,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,12 +110,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\laser2b.wav" />
+    <Resource Include="plain-text-file-icon-hi.ico" />
     <Resource Include="Documentation\plain-text-file-icon-hi.ico" />
     <Resource Include="Documentation\plain-text-file-icon-hi.png" />
     <Resource Include="Documentation\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ConfigureWindow.xaml">
+    <Page Include="OptionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

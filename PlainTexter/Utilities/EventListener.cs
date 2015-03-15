@@ -204,7 +204,7 @@ namespace PlainTexter.Utilities
 
                 try
                 {
-                    ClipboardManager.UpdateClipboard();
+                    ClipboardManager.UpdateClipboardToPlainText();
                     SimulateCtrlV();
                 }
                 catch { }

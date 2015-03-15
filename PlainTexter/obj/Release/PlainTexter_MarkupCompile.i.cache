@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Debug\
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\
 PlainTexter
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\App.xaml
-1209598913
+190442588
 1348180501
-16-1660458518
+162106713287
 141012385901
-OptionsWindow.xaml;
+ConfigureWindow.xaml;
 
 False
 

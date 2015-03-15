@@ -1,0 +1,15 @@
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\bin\Release\PlainTexter.exe.config
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\bin\Release\PlainTexter.exe
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\bin\Release\PlainTexter.pdb
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.csprojResolveAssemblyReference.cache
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\ConfigureWindow.baml
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\ConfigureWindow.g.cs
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\App.g.cs
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter_Content.g.cs
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter_MarkupCompile.cache
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.g.resources
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.Properties.Resources.resources
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.Resource.resources
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.csproj.GenerateResource.Cache
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.exe
+C:\Users\d92495j\Dropbox\Code\GitHub\PlainTexter\PlainTexter\obj\Release\PlainTexter.pdb

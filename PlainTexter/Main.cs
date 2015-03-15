@@ -25,7 +25,7 @@ namespace PlainTexter
     class Main : Window
     {
         private EventListener _eventListener;
-        private Window _configureWindow;
+        private Window _optionsWindow;
         private PlainTextConfig _config;
         private NotifyIcon _trayIcon;
 
@@ -46,7 +46,7 @@ namespace PlainTexter
         {
             // Build the icon menu
             System.Windows.Forms.ContextMenu trayMenu = new System.Windows.Forms.ContextMenu();
-            System.Windows.Forms.MenuItem item = new System.Windows.Forms.MenuItem("Configure", OnConfigure);
+            System.Windows.Forms.MenuItem item = new System.Windows.Forms.MenuItem("Options", OnOptions);
             item.DefaultItem = true;
             trayMenu.MenuItems.Add(item);
             trayMenu.MenuItems.Add("Exit", OnExit);
@@ -64,24 +64,24 @@ namespace PlainTexter
         // When the icon is double clicked, open the configure form
         private void trayIcon_DoubleClick(object sender, EventArgs e)
         {
-            OnConfigure(sender, e);
+            OnOptions(sender, e);
         }
 
         // Open handle requests to edit the settings
-        private void OnConfigure(object sender, EventArgs e)
+        private void OnOptions(object sender, EventArgs e)
         {
             // Check that the Configure window isn't already open
-            if (_configureWindow == null)
+            if (_optionsWindow == null)
             {
-                _configureWindow = new ConfigureWindow(_eventListener, _config);
-                _configureWindow.Show();
-                _configureWindow.Closed += _configureWindow_Closed;
+                _optionsWindow = new OptionsWindow(_eventListener, _config);
+                _optionsWindow.Show();
+                _optionsWindow.Closed += _configureWindow_Closed;
             }
         }
 
         private void _configureWindow_Closed(object sender, EventArgs e)
         {
-            _configureWindow = null;
+            _optionsWindow = null;
         }
         
         private void OnExit(object sender, EventArgs e)
@@ -90,45 +90,6 @@ namespace PlainTexter
             _trayIcon.Dispose();
             System.Windows.Application.Current.Shutdown();
         }
-
-
-
-
-
-        /*
-        private void OnReset(object sender, EventArgs e)
-        {
-            _eventListener.ResetKeys();
-        }
-
-        private void OnDebug(object sender, EventArgs e)
-        {
-            var status = _eventListener.GetStatus();
-            System.Windows.MessageBox.Show(status);
-        }
-        
-        private void OnConfigure(object sender, EventArgs e)
-        {
-            // Check that the Settings form isn't already open
-            if (SettingsOpen == false)
-            {
-                SettingsOpen = true;
-                Rectangle workingArea = Screen.GetWorkingArea(this);
-                SettingsForm settingsForm = new SettingsForm(config);
-                settingsForm.Location = new Point(workingArea.Right - Size.Width - 300, workingArea.Bottom - Size.Height - 200);
-                settingsForm.Disposed += settingsForm_Disposed;
-                settingsForm.Show();
-            }
-        }
-
-        // Update tracking that user closed Settings
-        private void settingsForm_Disposed(object sender, EventArgs e)
-        {
-            SettingsOpen = false;
-        }
-        */
-
-
 
 
     }

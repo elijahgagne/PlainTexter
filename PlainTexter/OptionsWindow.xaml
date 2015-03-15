@@ -1,9 +1,9 @@
-﻿<Window x:Class="PlainTexter.ConfigureWindow"
+﻿<Window x:Class="PlainTexter.OptionsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PlainTexter" Height="300" Width="600" ResizeMode="NoResize">
+        Title="PlainTexter" Height="350" Width="600" ResizeMode="NoResize">
     <Grid>
-        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TabStripPlacement="Left">
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TabStripPlacement="Left" SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="Settings">
                 <Grid Background="#FFE5E5E5">
                     <StackPanel Margin="10">
@@ -13,7 +13,24 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Debug">
+            <TabItem x:Name="ViewerTab" Header="Viewer">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Margin="10">
+                        <Button x:Name="ViewerRefreshButton" Click="ViewerRefreshButton_Click" Content="Refresh" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
+                        <TextBlock x:Name="DataFormatTextBlock" Margin="10, 20, 0, 0" />
+                    </StackPanel>
+                    
+                    <WebBrowser Grid.Row="1" x:Name="ViewerWebBrowser" Margin="10" Height="200" Visibility="Hidden" />
+                    <TextBox Grid.Row="1" x:Name="ViewerTextBox" Margin="10" Height="200" IsReadOnly="True" Visibility="Hidden" />
+                    <RichTextBox Grid.Row="1" x:Name="ViewerRichTextBox" Margin="10" Height="200" IsReadOnly="True" Visibility="Hidden" />
+                    <DataGrid Grid.Row="1" x:Name="ViewerDataGrid" Margin="10" Height="200" IsReadOnly="True" Visibility="Hidden" />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="DebugTab" Header="Debug">
                 <Grid Background="#FFE5E5E5">
                     <StackPanel Margin="10">
                         <WrapPanel>
@@ -28,11 +45,13 @@
                 <Grid Background="#FFE5E5E5">
                     <StackPanel Margin="10">
                         <TextBlock>
-Project website: <Hyperlink NavigateUri="http://www.elijahg.com/plaintexter/">http://www.elijahg.com/plaintexter/</Hyperlink><LineBreak /><LineBreak />
-                        
+Version: 2.1 (2015-03-15)<LineBreak />
+Project website: <Hyperlink NavigateUri="http://www.elijahg.com/plaintexter/">http://www.elijahg.com/plaintexter/</Hyperlink><LineBreak />
+Source code: <Hyperlink NavigateUri="https://github.com/elijahgagne/PlainTexter">https://github.com/elijahgagne/PlainTexter</Hyperlink><LineBreak /><LineBreak />
+             
+Credits:<LineBreak /><LineBreak />
 Inspired by Steve Miller's <Hyperlink NavigateUri="http://www.stevemiller.net/puretext/">PureText</Hyperlink><LineBreak /><LineBreak />
-Additional credits:<LineBreak /><LineBreak />
-                        
+
 A Simple C# Global Low Level Keyboard Hook<LineBreak />
 <Hyperlink NavigateUri="http://www.codeproject.com/Articles/19004/A-Simple-C-Global-Low-Level-Keyboard-Hook">http://www.codeproject.com/Articles/19004/A-Simple-C-Global-Low-Level-Keyboard-Hook</Hyperlink><LineBreak /><LineBreak />
 
