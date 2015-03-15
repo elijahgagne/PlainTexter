@@ -73,7 +73,7 @@ namespace PlainTexter.Utilities
             SystemEvents.SessionSwitch += new SessionSwitchEventHandler(OnSessionSwitch);
         }
         
-        public string GetStatus()
+        public string GetDebugStatus()
         {
             string output = "";
             string keysListening = "";

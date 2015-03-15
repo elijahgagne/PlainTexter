@@ -1,8 +1,51 @@
 ﻿<Window x:Class="PlainTexter.ConfigureWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ConfigureWindow" Height="300" Width="300">
+        Title="PlainTexter" Height="300" Width="600" ResizeMode="NoResize">
     <Grid>
-        <TextBlock>Hi my friend</TextBlock>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TabStripPlacement="Left">
+            <TabItem Header="Settings">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Margin="10">
+                        <Button x:Name="SaveSettingshButton" Click="SaveSettingshButton_Click" Content="Save" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
+                        <CheckBox x:Name="RunAtStartupCheckbox" Margin="10, 20, 0, 0">Run at startup</CheckBox>
+                        <CheckBox x:Name="PlaySoundCheckbox" Margin="10">Play a sound</CheckBox>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Debug">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Margin="10">
+                        <WrapPanel>
+                        <Button x:Name="DebugRefreshButton" Click="DebugRefreshButton_Click" Content="Refresh" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" />
+                        <Button x:Name="ResetKeysButton" Click="ResetKeysButton_Click" Content="Reset Keys" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="10, 0, 0, 0" />
+                        </WrapPanel>
+                        <TextBlock x:Name="DebugTextBlock" Margin="0, 10, 0, 0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="About">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Margin="10">
+                        <TextBlock>
+Project website: <Hyperlink NavigateUri="http://www.elijahg.com/plaintexter/">http://www.elijahg.com/plaintexter/</Hyperlink><LineBreak /><LineBreak />
+                        
+Inspired by Steve Miller's <Hyperlink NavigateUri="http://www.stevemiller.net/puretext/">PureText</Hyperlink><LineBreak /><LineBreak />
+Additional credits:<LineBreak /><LineBreak />
+                        
+A Simple C# Global Low Level Keyboard Hook<LineBreak />
+<Hyperlink NavigateUri="http://www.codeproject.com/Articles/19004/A-Simple-C-Global-Low-Level-Keyboard-Hook">http://www.codeproject.com/Articles/19004/A-Simple-C-Global-Low-Level-Keyboard-Hook</Hyperlink><LineBreak /><LineBreak />
+
+Icon<LineBreak />
+<Hyperlink NavigateUri="http://www.clker.com/clipart-plain-text-file-icon.html">http://www.clker.com/clipart-plain-text-file-icon.html</Hyperlink><LineBreak /><LineBreak />
+
+Sound<LineBreak />
+<Hyperlink NavigateUri="http://www.threecaster.com/wavy/laser2b.wav">http://www.threecaster.com/wavy/laser2b.wav</Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

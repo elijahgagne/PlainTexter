@@ -25,10 +25,9 @@ namespace PlainTexter
     class Main : Window
     {
         private EventListener _eventListener;
+        private Window _configureWindow;
         private PlainTextConfig _config;
         private NotifyIcon _trayIcon;
-        //private bool ConfigureOpen;
-        private Window _configureWindow;
 
         public Main()
         {
@@ -50,9 +49,6 @@ namespace PlainTexter
             System.Windows.Forms.MenuItem item = new System.Windows.Forms.MenuItem("Configure", OnConfigure);
             item.DefaultItem = true;
             trayMenu.MenuItems.Add(item);
-            //trayMenu.MenuItems.Add("Reset", OnReset);
-            //trayMenu.MenuItems.Add("Debug", OnDebug);
-            //trayMenu.MenuItems.Add("About", OnAbout);
             trayMenu.MenuItems.Add("Exit", OnExit);
 
             // Build the tray icon
@@ -77,7 +73,7 @@ namespace PlainTexter
             // Check that the Configure window isn't already open
             if (_configureWindow == null)
             {
-                _configureWindow = new ConfigureWindow();
+                _configureWindow = new ConfigureWindow(_eventListener, _config);
                 _configureWindow.Show();
                 _configureWindow.Closed += _configureWindow_Closed;
             }
@@ -111,20 +107,6 @@ namespace PlainTexter
             System.Windows.MessageBox.Show(status);
         }
         
-        // Handle requests to view the about info
-        private void OnAbout(object sender, EventArgs e)
-        {
-            // Check that the About form isn't already open
-            if (AboutOpen == false)
-            {
-                AboutOpen = true;
-                Form aboutForm = new AboutForm();
-                aboutForm.StartPosition = FormStartPosition.CenterScreen;
-                aboutForm.Disposed += aboutForm_Disposed;
-                aboutForm.Show();
-            }
-        }
-        
         private void OnConfigure(object sender, EventArgs e)
         {
             // Check that the Settings form isn't already open
@@ -143,12 +125,6 @@ namespace PlainTexter
         private void settingsForm_Disposed(object sender, EventArgs e)
         {
             SettingsOpen = false;
-        }
-
-        // Update tracking that user closed About
-        private void aboutForm_Disposed(object sender, EventArgs e)
-        {
-            AboutOpen = false;
         }
         */
 
