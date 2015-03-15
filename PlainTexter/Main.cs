@@ -77,6 +77,10 @@ namespace PlainTexter
                 _optionsWindow.Show();
                 _optionsWindow.Closed += _configureWindow_Closed;
             }
+            else
+            {
+                _optionsWindow.Activate();
+            }
         }
 
         private void _configureWindow_Closed(object sender, EventArgs e)
