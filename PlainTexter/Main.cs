@@ -32,13 +32,12 @@ namespace PlainTexter
         public Main()
         {
             // Run in the background
-            Visibility = System.Windows.Visibility.Hidden;
+            Visibility = Visibility.Hidden;
             ShowInTaskbar = false;
             SetupTaskTrayIcon();
 
             // Load the current config
-            _config = new PlainTextConfig();
-            _config.UpdateFromRegistry();
+            _config = new PlainTextConfig(true);
             _eventListener = new EventListener(_config);
         }
 

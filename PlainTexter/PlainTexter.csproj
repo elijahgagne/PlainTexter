@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\laser2b.wav" />
+    <Resource Include="Documentation\Links.txt" />
     <Resource Include="plain-text-file-icon-hi.ico" />
     <Resource Include="Documentation\plain-text-file-icon-hi.ico" />
     <Resource Include="Documentation\plain-text-file-icon-hi.png" />

@@ -42,8 +42,6 @@ namespace PlainTexter
             {
                 PlaySoundCheckbox.IsChecked = true;
             }
-
-            DebugTextBlock.Text = _eventListener.GetDebugStatus();
         }
 
 
@@ -55,10 +53,6 @@ namespace PlainTexter
                 if (ViewerTab.IsSelected)
                 {
                     ViewerRefreshButton_Click(null, null);
-                }
-                else if(DebugTab.IsSelected)
-                {
-                    DebugRefreshButton_Click(null, null);
                 }
             }
         }
@@ -142,17 +136,6 @@ namespace PlainTexter
                 ViewerTextBox.Text = ClipboardManager.GetClipboardTextData();
             }
         }
-
-        private void DebugRefreshButton_Click(object sender, RoutedEventArgs e)
-        {
-            DebugTextBlock.Text = _eventListener.GetDebugStatus();
-        }
-
-        private void ResetKeysButton_Click(object sender, RoutedEventArgs e)
-        {
-            _eventListener.ResetKeys();
-        }
-
 
 
 

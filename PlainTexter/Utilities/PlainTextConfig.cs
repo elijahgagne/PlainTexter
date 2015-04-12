@@ -10,54 +10,23 @@ namespace PlainTexter.Utilities
 
         public bool RunAtStatup { get; set; }
         public bool PlaySound { get; set; }
+        public string SoundPath { get; set; }
 
 
         public PlainTextConfig()
         {
+            // Load default settings
             PlaySound = true;
             RunAtStatup = false;
+            SoundPath = "{Default}";
         }
 
-        public void UpdateFromRegistry()
+        public PlainTextConfig(bool ReadFromRegistry)
+            : this()
         {
-            RunAtStatup = GetRegSetting(RunAtStatupKeyPath, "PlainTexter", Assembly.GetExecutingAssembly().Location);
-
-            if (EnsureAppKeyExists())
-                PlaySound = GetRegSetting(AppKeyPath, "PlaySound", "true");
-        }
-
-        public bool EnsureAppKeyExists()
-        {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(AppKeyPath);
-
-            if (key == null)
+            if (ReadFromRegistry)
             {
-                key = Registry.CurrentUser.CreateSubKey(AppKeyPath);
-                key.SetValue("PlaySound", "true", RegistryValueKind.String);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        private bool GetRegSetting(string keypath, string value, string truematch)
-        {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(keypath);
-
-            if (key != null)
-            {
-                string property = (string)key.GetValue(value);
-
-                if (property != null && property.ToLower() == truematch.ToLower())
-                    return true;
-                else
-                    return false;
-            }
-            else
-            {
-                return false;
+                UpdateFromRegistry();
             }
         }
 
@@ -97,6 +66,57 @@ namespace PlainTexter.Utilities
                 }
             }
         }
+
+        private void UpdateFromRegistry()
+        {
+            RunAtStatup = GetRegSetting(RunAtStatupKeyPath, "PlainTexter", Assembly.GetExecutingAssembly().Location);
+
+            if (EnsureAppKeyExists())
+            {
+                PlaySound = GetRegSetting(AppKeyPath, "PlaySound", "true");
+            }
+        }
+
+        private bool EnsureAppKeyExists()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(AppKeyPath);
+
+            if (key == null)
+            {
+                key = Registry.CurrentUser.CreateSubKey(AppKeyPath);
+                key.SetValue("PlaySound", "true", RegistryValueKind.String);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool GetRegSetting(string keypath, string value, string truematch)
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(keypath);
+
+            if (key != null)
+            {
+                string property = (string)key.GetValue(value);
+
+                if (property != null && property.ToLower() == truematch.ToLower())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
 
 
     }

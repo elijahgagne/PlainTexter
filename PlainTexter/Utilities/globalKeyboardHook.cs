@@ -120,6 +120,7 @@ namespace PlainTexter.Utilities
                 if (HookedKeys.Contains(key))
                 {
                     KeyEventArgs kea = new KeyEventArgs(Keyboard.PrimaryDevice, new HwndSource(0, 0, 0, 0, 0, "", IntPtr.Zero), 0, key);
+
                     if ((wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN) && (KeyDown != null))
                     {
                         KeyDown(this, kea);
@@ -128,10 +129,14 @@ namespace PlainTexter.Utilities
                     {
                         KeyUp(this, kea);
                     }
+
                     if (kea.Handled)
+                    {
                         return 1;
+                    }
                 }
             }
+
             return CallNextHookEx(hhook, code, wParam, ref lParam);
         }
         #endregion
